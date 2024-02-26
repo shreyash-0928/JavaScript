@@ -19,7 +19,7 @@ let state;
 // string => ""
 // boolean => true/false
 // null => standalone value
-// undefined => 
+// undefined =>   
 // symbol => unique
 
 
@@ -27,3 +27,5 @@ let state;
 
 console.log(typeof undefined); // Type - undefined
 console.log(typeof null); //Type -  object
+console.log(typeof age); // Type -  object
+console.log(typeof isLoggedIn); // Type - boolean 
