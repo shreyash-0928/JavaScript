@@ -51,3 +51,29 @@ console.log(typeof heros);
 //  Master objects and  Browser's web events or Browser events 
 
 // https://262.ecma-international.org/5.1/#sec-11.4.3
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Stack (Primitive), Heap(Non-primitive)
+
+// Stack gives Copy of  Origninal objects
+let myName = "Shreyash";
+
+let mySecondName = myName
+mySecondName = "Morgan"
+
+console.log(myName);
+console.log(mySecondName);
+
+
+// Heap gives Reference of Origninal objects
+let userOne = {
+    email : "user@example.com",
+    upi : "user@sbi"
+}
+
+let userTwo = userOne
+
+userTwo.email = "shreyash@gmail.com"
+console.log(userTwo.email);
+console.log(userOne.email);
