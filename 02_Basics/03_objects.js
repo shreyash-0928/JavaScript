@@ -2,7 +2,6 @@
 // object.create
 
 // object literals
-
 const mySum = Symbol("key")
 
 const JsUser = {
