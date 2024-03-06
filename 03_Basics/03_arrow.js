@@ -43,12 +43,16 @@ const chai = () => {
 // Arrow function
 //Note - 1. If we wrap in {} then we have to write return statement
 //       2. If we wrap in () then we dont have to write return statement
-// const addTwo = (num1, num2) => num1 + num2
-// const addTwo = (num1, num2) => (num1 + num2)
+// const addTwo = (num1, num2) => num1 + num2   // return ho rha h
+// const addTwo = (num1, num2) => (num1 + num2) // () laga ke return kr diya
 
 const addTwo = (num1, num2) => ({username: "Shreyash"})
 console.log(addTwo(1,3));
 
 const myArray = [1,2,3,4,5]
 myArray.forEach()
-myArray.forEach(() => {})  // Arrow functions
+
+// Arrow functions
+myArray.forEach((element) => {
+    console.log(element);
+});
