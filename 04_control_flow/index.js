@@ -1,3 +1,8 @@
-var string1 = "Code";
-var string2 = "Chef";
-console.log(string1 + string2);
+var i = 0;
+while (i <= 5) {
+   console.log("JavaScript");
+    if (i === 4) {
+         break;
+    }
+    i = i + 2;
+}
