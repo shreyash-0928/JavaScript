@@ -339,4 +339,61 @@
 
 // In any method, "this" keyword always refers to parent object
 
- // call apply bind
+ // call apply bind => agr tumhare pass koi function hai and koi object hai and tumhe function
+ // chalana hai aur by default jo this ki value window hai usse window naa rkh kr point krwane hai kisi object ki taraf
+
+
+//  function abcd(){
+//     console.log(this.age);
+//  }
+//  var obj = {age: 24}
+
+//  abcd.call(obj)
+
+// call
+// function abcd(val1, val2, val3){
+//     console.log(this.age);
+// }
+// var obj = {age: 24}
+
+// abcd.call(obj, 1,2,3)
+
+// apply
+// function abcd(val1, val2, val3){
+//     console.log(this,val1, val2, val3);
+// }
+// var obj = {age: 24}
+
+// abcd.call(obj,[ 1,2,3])
+
+// bind => bind and give new function   
+// used in EventListener in react.
+// function abcd(val1, val2, val3){
+//     console.log(this);
+// }
+// var obj = {age: 24}
+
+// var bindedfunc = abcd.bind(ob);
+// bindedfunc();
+
+// 9) pure and impure func
+// pure function => Aisa func jo ki same input pr same output de har bar aur globle variable ko hange na kre
+// function abcd(a,b){
+//     return a*b;
+// }
+
+
+// var ans1 = abcd(1,2);
+// var ans2 = abcd(1,2);
+
+// impure function
+
+// var abcdef = 12
+// function abcd(a,b){
+    // abcdef = 24
+//     return a*b;
+// }
+
+// var ans1 = abcd(1,2);
+// var ans2 = abcd(1,2);
+

@@ -41,5 +41,5 @@ life
 prototype
 prototype1 inheritence
 this call apply bind
-pure func
+pure and impure func
 closures
