@@ -1,4 +1,4 @@
-// Basics of JS
+// <--- Basics of JS --->
 // 1) var const let 
 
 // 2) variables and constants
@@ -78,7 +78,7 @@
 // a.age = 23;   ---> this will update the properties of object
 
 
-// Advance topics in JS
+// <--- Advance topics in JS --->
 
 // 1) the diffrence btw var, let, const & windows object
 
@@ -217,7 +217,7 @@
 // delete a.name;
 
 
-// JavaScript Concepts
+// <--- JavaScript Concepts --->
 
 // 1) Higher order function
 // function abcd(val) {        //abcd is hiher order function
@@ -397,3 +397,54 @@
 // var ans1 = abcd(1,2);
 // var ans2 = abcd(1,2);
 
+
+// <--- Async JavaScript --->
+
+// 1) sync and async kya hota hai?
+
+// SYNC => sync mtlb ek ke bd dusra hoga, jbtk ek command complete naa ho, dusra shuru nhi hoga.
+// SYNC code always move to main stack.
+// ASYNC => mtlb sare kaaam ek sath shuru kr do, jiska answer pehle aajaye uska jawab dedena.
+// Async working = 1. move to side stack first
+//                 2. after executing all SYNC codes from main stack and stack gets empty, then side stack will be checked
+//                 3. If Async stack gets the answer then Async code moves from side stack to main stack
+// which is sync which is async code
+// Rest all are SYNC code in JS 
+// EX for ASYNC - // setTimeout
+                  // setInterval
+                  // Promises
+                  // fetch
+                  // axios(package)
+                  // XMLHttpRequest
+
+// 2) async js hai kya?
+// * kai bar aapka final code depended hota hai kisi aur ke server pr, is case me nahi pata hota ki answer uske server se kb laut kr ayega,
+// to hum kya nhi kr skte is writing sync code, isse nipaatne ke liye hum log async code likh dete hai taaki blocking na ho and
+// jab bhi answer aaye humare answer ke respect me chalne wala code chal jaaye
+
+// * async code ka main motive hota hai ki un cases mein jinmen hume pata nhi code ka answer kitni der me aayega to 
+// jb bhi aajayega uske answer ke respect mein koi particular code chala dena
+
+// Ex - facebook se photo laao aur jb photo aa jayega show kr dena
+// Explainatio - 1st line ka code h jisme likha h ki give me this photo and 
+//               2nd line ka code h showing photo
+//               then jb 1st line photo le ayega tb 2nd line chalegi
+
+// console.log('HEY');
+// setTimeout(function(){
+//     console.log('HEY2');
+// },2000)
+
+// 3) js is not asynchronous
+// 4) async ki poori kahaani
+// 5) single threading and multi threading
+// 6) callbacks (Hamesha function hota h)
+// 7) promises
+// 8) then and catch
+// 9) try and catch
+// 10) async await
+// 11) 5 use cases ekdum real world wale
+
+// [Concept aside]
+// 11) concurrency and parallelism
+// 12) throttling
