@@ -408,6 +408,7 @@
 // Async working = 1. move to side stack first
 //                 2. after executing all SYNC codes from main stack and stack gets empty, then side stack will be checked
 //                 3. If Async stack gets the answer then Async code moves from side stack to main stack
+// side stack = event loop
 // which is sync which is async code
 // Rest all are SYNC code in JS 
 // EX for ASYNC - // setTimeout
@@ -436,15 +437,187 @@
 // },2000)
 
 // 3) js is not asynchronous
+// js is single threaded
+
 // 4) async ki poori kahaani
+// ek Main stack hota h ek side stack hota hai. SYNC code main stack me jate h, 
+// ASYNC code side stack me jate hai. pehle main stack ka code chlta h, jb wo khali hoga tb jake side stack me pucha jata h ki tumhara kaam ho gaya?
+// agr ha to tb use main stack me laya jata hai.
+
 // 5) single threading and multi threading
+
 // 6) callbacks (Hamesha function hota h)
-// 7) promises
-// 8) then and catch
-// 9) try and catch
+
+// jab bhi fetch, axios, promises, setTimeout, setInterval use krte ho tum ASYNC code likh rhe ho. 
+// Ye code ko bhejte hai. 
+// jb complete ho jaye tb uska answer kochalane ke liye ye sb hai mainly => then, catch
+//                                                                          callbacks
+//                                                                          async await
+// callbacks hamesha ek function hota h, 
+// jo ASYNC code ke complete hone pe chalta hai
+
+// Use of callback =>
+// aync code ka answer chalane ke liye inka use hota hai => then, catch
+//                                                          callbacks
+//                                                          async await  
+
+// 7) promises, then and catch
+// Example 1
+// ans me ek promise saved h jisme se uski state 3 me se koi ek ho skti h 1) Pending state
+//                                                                        2) Resolved state   
+//                                                                        3) Rejected state                          
+// var ans = new Promise((res, rej) => {
+//     if(true){
+//         return res();
+//     }else{
+//         return rej();
+//     }
+// })
+
+// ans
+// .then(function(){
+//     console.log("Resolved");
+// })
+// .catch(function(){
+//     console.log("Rejected");
+// })
+
+// Example 2
+// User wil ask for a number between 0 se 9 and if the number is below 5 resolve if not reject
+
+// var ans = new Promise((res, rej) => {
+//     var n = Math.floor(Math.random()*10);
+//      console.log(n);
+//         if(n<5){
+//             return res();
+//         }else{
+//             return rej();
+//         }
+//     })
+//     ans
+//     .then(function () {
+//         console.log("Below");
+//     })
+//     .catch(() => {
+//         console.log("Above");
+//     })
+
+// Example 3
+// sbse pehle ghr pr aao
+// gate kholo aur gate lagao
+// khana pakao khana khao
+// game khelo 
+
+// var ans = new Promise(function(res, rej){
+//     return res("sbse pehle ghr pr aao")
+// })
+// var p2 = ans.then(function(data){
+//     console.log(data);
+//     return new Promise(function(res, rej){
+//         return res("gate kholo aur gate lagao");
+//     })
+// })
+
+// var p3 = p2.then(function(data){
+//     console.log(data);
+//     return new Promise(function(res, rej){
+//         return res("khana pakao khana khao");
+//     })
+// })
+
+// var p4 = p3.then(function(data){
+//     console.log(data);
+//     return new Promise(function(res, rej){
+//         return res("game khelo");
+//     })
+// })
+// var p5 = p4.then(function(data){
+//     console.log(data);
+//     return new Promise(function(res, rej){
+//         return res("game khelo");
+//     })
+// })
+
+
 // 10) async await
+//  Koi bhi esa function jisme aap async code likhenge, kyoki async code hai
+// to aap promises ka istemal kr skte hai, jab uska answer aayega aapko 
+// "then" lagana pdega, us "then" ko lagane se bachne ke liye, 
+// aap "async await" ka istemaal kr skte hai
+
+// async function abcd(){
+//     let raw = await fetch(`https://randomuser.me/api`);
+//     let ans = await raw.json();
+//     console.log(ans);
+// }
+// abcd()
+
 // 11) 5 use cases ekdum real world wale
+// 12) node me jb db ka code likhte hai tb async await then ka use krna pdta h
+
+// 13) fetch = in react fetch and axios use hota h (To gice a call to the  backend and bring some data)
+// backend ka data kab ayega hame nhi pta tb use hota h fetch with then or async await.
+
+// 14) setTimeout
+// 15) setInterval
+// agr koi result 3rd party pe dependent hai us time pe setTimeout, setInterval use hota h
+// waha pe aapka application jo h wo wait krna chahiye 3rd party se result(data) ke ane ka
+// 1st party = me
+// 2nd party = application
+// 3rd party = dusre jagah se data lana 
 
 // [Concept aside]
-// 11) concurrency and parallelism
-// 12) throttling
+// 16) concurrency and parallelism
+// concurrency => js me sync code and async code ek sath process ho raha tha ye hai concurrency
+// parallelism => focus jaada krta hai different processors and unke cores pr kaam ko chalane pr
+// 17) throttling => kisi code ko control krna number of executions 
+
+
+// <--- DOM Learn what matters --->
+
+// 1) What is DOM? 
+// 2) 4 Pillars of DOM
+//         1. Selection of an element
+//         2. Changing HTML
+//         3. Changing CSS
+//         4. Event Listener
+
+// var a = document.querySelector("h1") // .innerHTML = "CSS"
+// console.log(a)
+
+// a.addEventListener("click", function(){
+//     a.innerHTML = "Changed HTML"
+//     a.style.color = "red";
+//     a.style.backgroundColor = "black";
+// })
+
+
+// 3)Simple example of bulb clicking on the same button
+// var bulb = document.querySelector("#bulb")
+// var btn = document.querySelector("button")
+
+// var flag = 0
+
+// btn.addEventListener("click", function(){
+//     if(flag==0){
+//         bulb.style.backgroundColor = "yellow"
+//         flag = 1
+//     }else{
+//         bulb.style.backgroundColor = "transparent"
+//         flag = 0
+//     }
+// })
+
+// 4) Multiple events
+// 5) selecting multiple elements at a same time
+// document.querySelectorAll();
+// document.getElementById();
+// document.getElementsByClassName();
+
+// 6) setTimeout
+// 7) setInterval
+
+// EXTRA
+// var box = document.querySelector("#box")
+// box.innerHTML = "<h1>Hello</h1>"    if we have to change whole h1 tag we have to use innerHTML  
+// box.textContent = "Hello"           if we want to change the text content then have to use textContent keyword
