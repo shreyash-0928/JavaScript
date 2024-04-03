@@ -11,3 +11,9 @@
 ( (name) => {
     console.log(`DB CONNECTED TWO ${name}`);
 } )('hitesh')
+
+(function add(a,b){
+    console.log(a+b);
+})(1,2);
+
+(() => console.log("I am Es6"))()
