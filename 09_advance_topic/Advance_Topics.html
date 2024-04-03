@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>JS</div>
+  </body>
+  <script>
+    // Closures => A closure gives you access to an outer function's scope from an inner function.
+    //             In JavaScript, closures are created every time a function is created, at function creation time.
+
+    // function makeAdder(x) {
+    //   return function (y) {
+    //     return x + y;
+    //   };
+    // }
+
+    // const add5 = makeAdder(5);
+    // const add10 = makeAdder(10);
+
+    // console.log(add5(2)); // 7
+    // console.log(add10(2)); // 12
+
+    // Currying => Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument.
+
+    // function add(a) {
+    //     return function (b){
+    //         return function (c){
+    //             return a+b+c;
+    //         };
+    //     };
+    // }
+
+    const add = (a) => (b) => (c) => a + b + c;
+    console.log(add(1)(2)(3));
+
+    // function sendAutoEmail(to){
+    //     return function(subject){
+    //         return function(body){
+    //             console.log(`Sending Email to ${to} with subject ${subject}: ${body}`);
+    //         }
+    //     }
+    // }
+
+    const sendAutoEmail = (to) => (subject) => (body) =>
+      console.log(`Sending Email to ${to} with subject ${subject}: ${body}`);
+
+    let step1 = sendAutoEmail("shreyash@menubar.com");
+    let step2 = step1("New Order Comfirmation!");
+    let step3 = step2("Hey Shreyash, Here is something for you");
+  </script>
+</html>
